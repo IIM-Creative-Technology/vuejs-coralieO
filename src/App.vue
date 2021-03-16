@@ -1,18 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+      <div id="nav">
+         <div>
+           <router-link to="/">Gérer le blog |</router-link> 
+           <router-link to="/Blog">Blog |</router-link>
+           <router-link to="/Login">Login </router-link>
+        </div>
+         <button id="cree" type="submit">Créer une page</button>
+      
+     </div>
+      <!-- <router-view/> -->
+    <main>  
+    </main>
+  </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -21,6 +22,34 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+#nav {
+  padding: 30px;
+  display: flex;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+#cree{
+    position: relative;
+    left: 56%;
+
+}
+
 </style>
+<script>
+export default {
+  name: 'app',
+  components:{
+  },
+  data () {
+    
+  }
+}
+
+</script>
