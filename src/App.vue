@@ -6,10 +6,10 @@
            <router-link to="/Blog">Blog |</router-link>
            <router-link to="/Login">Login </router-link>
         </div>
-         <button id="cree" type="submit">Créer une page</button>
+         <button id="cree" type="submit"><router-link to="/New">Créer une page</router-link></button>
       
      </div>
-      <!-- <router-view/> -->
+     <router-view/> 
     <main>  
     </main>
   </div>
