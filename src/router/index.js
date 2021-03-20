@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import  AdminPage from '../views/AdminPage.vue'
 import  NewPage from '../views/NewPage.vue'
 import  Login from '../views/Login.vue'
+import  Inscription from '../views/Inscription.vue'
+
 const routes = [
   {
     path: '/',
@@ -23,6 +25,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/Inscription',
+    name: 'Inscription',
+    component: Inscription
   },
   {
     path: '/about',

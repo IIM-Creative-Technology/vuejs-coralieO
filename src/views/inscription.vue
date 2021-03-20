@@ -1,33 +1,61 @@
 <template>
-<div id="inscription">
-    <form action="" method="POST">
-                    <h1>INSCRIPTION</h1><!--titre-->
-                    <div>
-                        <label for="name">Nom :</label><!--premier paramètre-->
-                        <input type="text" id="name" name="user_name" placeholder="Loa">
-                    </div>
-                    <div>
-                        <label for="first_name">Prénom :</label><!--premier paramètre-->
-                        <input type="text" id="name" name="user_name" placeholder="Coco">
-                    </div>
-                    <div>
-                        <label for="mail">e-mail :</label><!--premier paramètre-->
-                        <input type="email" id="mail" name="user_mail"  placeholder="Loacoco@gmail.com">
-                    </div>
-                    <div>
-                        <label for="password">Mot de passe :</label><!--premier paramètre-->
-                        <input type="password" id="password" name="password" >
-                    </div>
+<div id="Inscription">
+    <form action="" method="POST" @submit.prevent="Inscription">
+     <h1>CONNEXION</h1>
+     <div>
+       <label for="mail">e-mail : </label>
+       <input type="text" name="mail" id="mail" v-model="mail">
+     </div>
+     <div>
+       <label for="password">Mot de passe : </label>
+       <input type="text" name="password" id="password" v-model="password">
+     </div>
+     <div>
+       <label for="password_confirm">Confirmer mot de passe : </label>
+       <input type="text" name="password_confirm" id="password_confirm" v-model="password_confirm">
+     </div>
+      <div class="button">
+        <button type="submit" >Inscription</button>
+      </div>
+      <div>
+          <button type="submit"><router-link to="/Login"> CONNECTEZ VOUS</router-link></button>
+      </div>
+   </form>
+
                    
-                    <div class="button">
-                        <button type="submit" ><router-link to="/admin"> INSCRIPTION </router-link></button>
-                    </div>
-    </form>
+ 
 
 </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name: 'inscription'
+    name: 'Inscription',
+    data(){
+        return {
+           mail : "",
+           password : "",
+           password_confirm: "",
+        }
+    },
+    methods: {
+    Inscription(){
+      const data = {
+           mail : this.mail,
+           password : this.password,
+           password_confirm: this.password_confirm
+       };
+      axios.post('http://localhost:8080/Inscription',data)
+      .then(
+          res => {
+              console.log(res)
+          }
+      ).catch(
+          err => {
+              
+          }
+      )
+    }
+    }
 }
 </script>
