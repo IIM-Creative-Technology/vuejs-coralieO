@@ -1,9 +1,9 @@
 <template>
-  <div class="NewPage">
+  <div class="NewPage" >
       <h1>
         Créer une nouvelle page de blog
     </h1>
-    <form >
+    <form @New="addArticle">
         <section class="haut_formulaire">
         <section class="input">
             <label for="title">titre de la page</label>
@@ -15,7 +15,7 @@
         </section>
         <section class="ajout_img">
             <div><img :src="img_url" alt=""></div>
-            <button @click="sendImg">Ajouter une image</button>
+            <button type="file" @click="sendImg">Ajouter une image</button>
         </section>
         <section class="text">
             <label for="post">Corps du post</label>
@@ -29,28 +29,35 @@
 
 <script>
 
-
+import { mapActions, mapState } from "vuex"
 export default {
   name: 'NewPage',
+  props: ['articles'],
  data () {
       return {
-        title: '',
-        titleM: '',
-        description: '',
-        img_url: '',
-        post: '',
+       article: {
+            title: '',
+            titleM: '',
+            description: '',
+            img_url: '',
+            post: '',
+          }
       }
     },
  methods: {
+       ...mapActions(['addArticle']),
       submitNewPage() {
-        if (this.title != '' ||  this.titleM != '' || this.description != '' || this.post != '') {
-          this.$emit('New',this.title,this.titleM,this.description,this.post)
+        if (this.article.title != '' ||  this.article.titleM != '' || this.article.description != '' || this.article.post != '') {
+          this.$emit('New',this.article.title,this.article.titleM,this.article.description,this.article.post)
         }
-        this.title = '',
-        this.titleM = '',
-        this.description = '',
-        this.post = ''
+        this.article.title = '',
+        this.article.titleM = '',
+        this.article.description = '',
+        this.article.post = ''
       }
-}
+},
+  computed: {
+    ...mapState(['articles'])
+  }
 }
 </script>

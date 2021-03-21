@@ -1,5 +1,5 @@
 <template>
-  <div class="Blog" @New="addArticle">
+  <div class="Blog"  :articles=" articles">
       <h1>Articles</h1>
      <article v-for="description in articles" :key="description">
             <div><img :src="img_url" alt=""></div>
@@ -18,7 +18,7 @@ export default {
    
   },
   methods: {
-       ...mapActions(['addTask'])
+       ...mapActions(['addArticle'])
   },   
   computed: {
     ...mapState(['articles'])
