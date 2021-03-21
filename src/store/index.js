@@ -5,8 +5,8 @@ export default createStore({
     articles: [],
   },
   mutations: {
-    ADD_ARTICLE(state, description) {
-      let NewPage = { 'description': description}
+    ADD_ARTICLE(state, article) {
+      let NewPage = article
       state.articles.push(NewPage);
     },
   },

@@ -1,9 +1,9 @@
 <template>
-  <div class="NewPage" >
+  <div class="NewPage" @New="addArticle"  >
       <h1>
         Créer une nouvelle page de blog
     </h1>
-    <form @New="addArticle">
+    <form >
         <section class="haut_formulaire">
         <section class="input">
             <label for="title">titre de la page</label>
@@ -45,7 +45,7 @@ export default {
       }
     },
  methods: {
-       ...mapActions(['addArticle']),
+       
       submitNewPage() {
         if (this.article.title != '' ||  this.article.titleM != '' || this.article.description != '' || this.article.post != '') {
           this.$emit('New',this.article.title,this.article.titleM,this.article.description,this.article.post)
@@ -54,7 +54,8 @@ export default {
         this.article.titleM = '',
         this.article.description = '',
         this.article.post = ''
-      }
+      },
+      ...mapActions(['addArticle']),
 },
   computed: {
     ...mapState(['articles'])

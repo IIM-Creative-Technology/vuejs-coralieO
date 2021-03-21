@@ -18,7 +18,7 @@ export default {
    
   },
   methods: {
-       ...mapActions(['addArticle'])
+    ...mapActions(['addArticle'])
   },   
   computed: {
     ...mapState(['articles'])
