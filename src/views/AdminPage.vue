@@ -1,11 +1,11 @@
 <template>
   <div class="AdminPage">
      <article>
-            <div><img src="" alt=""></div>
+            <div><img :src="img_url" alt=""></div>
             <p></p>
             <div>
-                <button type="submit">Editer</button>
-                <button disabled="disabled">Supprimer</button>
+                <button type="submit" @click="check">Editer</button>
+                <button  @click="del">Supprimer</button>
             </div>
         </article>
   </div>
@@ -13,9 +13,21 @@
 
 <script>
 
-
+// import { mapActions, mapState } from "vuex"
 export default {
   name: 'AdminPage',
+  props: ['articles'],
+  data(){
+    this.articles
+  },
+  methods: {
+      check(index) {
+        this.$emit('check', index)
+      },
+      del(index) {
+        this.$emit('remover', index)
+      }
+  },   
   components: {
    
   }

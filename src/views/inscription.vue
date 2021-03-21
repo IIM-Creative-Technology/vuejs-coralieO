@@ -1,6 +1,6 @@
 <template>
 <div id="Inscription">
-    <form action="" method="POST" @submit.prevent="Inscription">
+    <form  @submit.prevent="Inscription">
      <h1>CONNEXION</h1>
      <div>
        <label for="mail">e-mail : </label>
@@ -8,11 +8,11 @@
      </div>
      <div>
        <label for="password">Mot de passe : </label>
-       <input type="text" name="password" id="password" v-model="password">
+       <input type="password" name="password" id="password" v-model="password">
      </div>
      <div>
        <label for="password_confirm">Confirmer mot de passe : </label>
-       <input type="text" name="password_confirm" id="password_confirm" v-model="password_confirm">
+       <input type="password" name="password_confirm" id="password_confirm" v-model="password_confirm">
      </div>
       <div class="button">
         <button type="submit" >Inscription</button>
@@ -39,22 +39,13 @@ export default {
         }
     },
     methods: {
-    Inscription(){
-      const data = {
+    async Inscription(){
+      const data =  await axios.post('Inscription', {
            mail : this.mail,
            password : this.password,
            password_confirm: this.password_confirm
-       };
-      axios.post('http://localhost:8080/Inscription',data)
-      .then(
-          res => {
-              console.log(res)
-          }
-      ).catch(
-          err => {
-              
-          }
-      )
+       });
+     console.log(data);
     }
     }
 }

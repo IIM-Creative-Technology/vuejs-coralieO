@@ -1,15 +1,14 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 import  AdminPage from '../views/AdminPage.vue'
 import  NewPage from '../views/NewPage.vue'
 import  Login from '../views/Login.vue'
 import  Inscription from '../views/Inscription.vue'
-
+import  Blog from '../views/Blog.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'AdminPage',
+    component: AdminPage
   },
   {
     path: '/Admin',
@@ -32,6 +31,11 @@ const routes = [
     component: Inscription
   },
   {
+    path: '/Blog',
+    name: 'Blog',
+    component:Blog
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -42,7 +46,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

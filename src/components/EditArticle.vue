@@ -15,7 +15,7 @@
         </section>
         <section class="ajout_img">
             <div><img src="" alt=""></div>
-            <h2>AModifier une image</h2>
+            <h2>Modifier une image</h2>
         </section>
         <section class="text">
             <label for="post">Corps du post</label>

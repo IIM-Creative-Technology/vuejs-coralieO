@@ -1,14 +1,14 @@
 <template>
   <div class="Login">
-   <form action="" method="POST">
-     <h1>CONNEXION</h1>
+    <h1>CONNEXION</h1>
+   <form >
      <div>
        <label for="mail">e-mail : </label>
        <input type="text" name="mail" id="mail">
      </div>
      <div>
        <label for="password">Mot de passe : </label>
-       <input type="text" name="password" id="password">
+       <input type="password" name="password" id="password">
      </div>
      <div class="button">
        <button type="submit">
